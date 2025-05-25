@@ -160,7 +160,7 @@ function initProducts() {
       newProduct.classList.add('catalog-content')
 
       newProduct.innerHTML =
-          `<a href="${product.url}.ejs">
+          `<a href="${product.url}">
            <img src="${product.image}" alt="${product.name}"> 
            </a>
            <article class="product-text">
