@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="NL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <script src="https://kit.fontawesome.com/7450ea0e8a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+<script src="/js/map.js" defer></script>
+    <script src="/js/script.js" defer></script>
+</head>
+<body>
+<header class="navbar">
+    <h1 class="title"><i class="fa-solid fa-cubes"></i> Artspire</h1>
+    <nav>
+        <ul id="desktop">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button class="button">Cart</button></li>
+            <li><button class="button">Sign In</button></li>
+        </ul>
+        <ul id="mobile">
+            <li><a href="#" id="open-sidebar"><i class="fa-solid fa-bars"></i></a></li>
+        </ul>
+    </nav>
+    <div class="sidebar">
+        <h1 class="title"><i class="fa-solid fa-cubes"></i> Artspire</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="sidebar-button" id="open-cart-sidebar">Cart</button></li>
+                <li><button class="sidebar-button">Sign In</button></li>
+                <li><a href="#" id="close-sidebar">Close</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <main>
+        <section class="cart">
+            <button id="close-cart"><i class="fa-solid fa-x"></i></button>
+            <article id="cart-list">
+
+            </article>
+            <article id="subtotal">
+                <div class="overzicht">
+                    <h4>Subtotaal</h4>
+                    <p id="netto-waarde">0</p>
+                </div>
+                <div class="overzicht">
+                    <h4>BTW%</h4>
+                    <p id="btw-waarde">0</p>
+                </div>
+                <div class="overzicht">
+                    <h4>Totaal</h4>
+                    <p id="grand-total">0</p>
+                </div>
+            </article>
+        </section>
+        <section id="contact-container">
+            <article>
+                <h1 class="playfair">Ondek Nieuwe Kunstwerken</h1>
+                <p class="work">Neem contact met ons op om prachtige kunstwerken te ontdekken die uw ruimte inspireren en naar een hoger niveau tillen.</p>
+            </article>
+            <article>
+                <img src="assets/cocoa.png" alt="cocoa">
+            </article>
+        </section>
+        <section id="form-container">
+            <article>
+                <form action="submit">
+                    <h4>Connect</h4>
+                    <h1 class="playfair">Get in Touch</h1>
+                    <p>We horen graag van jou</p>
+                    <label for="naam">Naam</label>
+                    <input type="text" id="naam" name="naam">
+                
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="bericht">Bericht</label>
+                    <input type="text" id="bericht" name="bericht">
+
+                    <label for="email-select">Selecteer contactpersoon</label>
+                    <select id="email-select" name="email-select">
+                        <option value="info@example.com">Vovantrong@hotmail.com</option>
+                        <option value="support@example.com">support@hotmail.com</option>
+                    </select>
+
+                    <button type="submit" id="form-button">Verzenden</button>
+                </form>
+            </article>
+        </section>
+        <section id="location-container">
+            <article>
+                <h4>Ontdek</h4>
+                <h1 class="playfair">Onze Winkel</h1>
+                <p>Bezoek onze gallerij!</p>
+            </article>
+            <article>
+                <div id="map"></div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container">
+            <article>
+                <h1><i class="fa-solid fa-cubes"></i> Artspire</h1>
+            </article>
+            <article>
+                <h3>Snelle Links</h3>
+                <ul>
+                    <li>Gallerij</li>
+                    <li>Nieuwkomers </li>
+                    <li>Best Verkocht</li>
+                    <li>Tentoonstellingen</li>
+                    <li>Contacteer Ons</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Customer Care</h3>
+                <ul>
+                    <li>FAQs</li>
+                    <li>Shipping Info</li>
+                    <li>Retour Beleid</li>
+                    <li>Gift Cards</li>
+                    <li>Beoordelingen</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Blijf In Contact</h3>
+                <ul>
+                    <li>Social Media</li>
+                    <li>Email Updates</li>
+                    <li>Events Kalender</li>
+                    <li>Doe mee</li>
+                    <li>Wordt Geïnspireerd</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Abonneer</h3>
+                <p>Schrijf je in op onze newsletter voor exclusieve aanbiedingen</p>
+                <form action="submit">
+                    <input type="email"> 
+                    <button>Join</button>
+                </form>
+                <p>Door u te abonneren, gaat u akkoord met ons privacybeleid en gaat u akkoord met het ontvangen van updates.</p>
+            </article>
+        </section>
+    </footer>
+</body>
+</html>
