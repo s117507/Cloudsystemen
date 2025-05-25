@@ -53,96 +53,96 @@ const products = [
         name: "Inumaki",
         description: "by Laura H. Rubin",
         price: 21.75,
-        image: "/assets/inumaki.png",
-        url: "inumaki"
+        image: "assets/inumaki.png",
+        url: "/inumaki"
     },
     {
         id: 2,
         name: "Choso",
         description: "by Laura H. Rubin",
         price: 25,
-        image: "/assets/choso.png",
-        url: "choso"
+        image: "assets/choso.png",
+        url: "/choso"
     },
     {
         id: 3,
         name: "Yue",
         description: "by Laura H. Rubin",
         price: 20,
-        image: "/assets/yue.png",
-        url: "yue"
+        image: "assets/yue.png",
+        url: "/yue"
     },
     {
         id: 4,
         name: "Azula",
         description: "by Laura H. Rubin",
         price: 30,
-        image: "/assets/IMG_4972.png",
-        url: "azula"
+        image: "assets/IMG_4972.png",
+        url: "/azula"
     },
     {
         id: 5,
         name: "Tiana",
         description: "by Laura H. Rubin",
         price: 40,
-        image: "/assets/tiana.png",
-        url: "tiana"
+        image: "assets/tiana.png",
+        url: "/tiana"
     },
     {
         id: 6,
         name: "Hinata",
         description: "by Laura H. Rubin",
         price: 40,
-        image: "/assets/hinata.png",
-        url: "hinata"
+        image: "assets/hinata.png",
+        url: "/hinata"
     },
     {
         id: 7,
         name: "Cinderella",
         description: "by Laura H. Rubin",
         price: 45,
-        image: "/assets/cinderella.png",
-        url: "cinderella"
+        image: "assets/cinderella.png",
+        url: "/cinderella"
     },
     {
         id: 8,
         name: "Mulan",
         description: "by Laura H. Rubin",
         price: 45,
-        image: "/assets/mulan.png",
-        url: "mulan"
+        image: "assets/mulan.png",
+        url: "/mulan"
     },
     {
         id: 9,
         name: "Suki",
         description: "by Laura H. Rubin",
         price: 47.5,
-        image: "/assets/suki.png",
-        url: "suki"
+        image: "assets/suki.png",
+        url: "/suki"
     },
     {
         id: 10,
         name: "Lawliet",
         description: "by Laura H. Rubin",
         price: 50,
-        image: "/assets/lawliet.png",
-        url: "lawliet"
+        image: "assets/lawliet.png",
+        url: "/lawliet"
     },
     {
         id: 11,
         name: "Ty Lee & Mai",
         description: "by Laura H. Rubin",
         price: 60,
-        image: "/assets/leemai.png",
-        url: "mai"
+        image: "assets/leemai.png",
+        url: "/mai"
     },
     {
         id: 12,
         name: "Katara",
         description: "by Laura H. Rubin",
         price: 50,
-        image: "/assets/katara.png",
-        url: "katara"
+        image: "assets/katara.png",
+        url: "/katara"
     }
 
 ];
@@ -160,7 +160,7 @@ function initProducts() {
       newProduct.classList.add('catalog-content')
 
       newProduct.innerHTML =
-          `<a href="${product.url}.html">
+          `<a href="${product.url}.ejs">
            <img src="${product.image}" alt="${product.name}"> 
            </a>
            <article class="product-text">
