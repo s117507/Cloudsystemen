@@ -10,17 +10,18 @@ services:
     command:
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
-      - --certificatesresolvers.le.acme.email=you@example.com
-      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
-      - --certificatesresolvers.le.acme.tlschallenge=true
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      - --certificatesresolvers.le.acme.email=you@domain.com
+      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.le.acme.tlschallenge=true
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
       - --entrypoints.web.http.redirections.entryPoint.scheme=https
     ports:
       - "80:80"     # HTTP
       - "443:443"   # HTTPS
     volumes:
+      - ./letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - web-public
@@ -32,8 +33,6 @@ services:
       - "traefik.http.routers.web.rule=Host(`Aniverse.chickenkiller.com`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=le"
-      - "traefik.http.routers.web.middlewares=redirect-to-https@docker"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.services.web.loadbalancer.server.port=3000"
     networks:
       - web-public
