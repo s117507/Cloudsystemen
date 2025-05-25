@@ -17,6 +17,7 @@ services:
       - --certificatesresolvers.le.acme.tlschallenge=true
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
       - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --certificatesresolvers.le.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"     # HTTP
       - "443:443"   # HTTPS
