@@ -1,11 +1,29 @@
 version: "3.8"
 
+networks:
+  web-public:
+    external: true
+
 services:
-  web:
-    image: express-laura:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+  traefik:
+    image: traefik:v2.9
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
     ports:
-      - "80:3000"
+      - "80:80"    
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - web-public
+
+  web:
+    image: express-laura:latest    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.rule=Host(`157.180.80.10`)"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"
+    networks:
+      - web-public
     restart: always
