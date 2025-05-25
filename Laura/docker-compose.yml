@@ -8,9 +8,15 @@ services:
   traefik:
     image: traefik:v2.9
     command:
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.le.acme.email=you@example.com
+      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.le.acme.tlschallenge=true
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
-      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
     ports:
       - "80:80"    
     volumes:
@@ -22,7 +28,11 @@ services:
     image: express-laura:latest    
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.web.rule=Host(`157.180.80.10`)"
+      - "traefik.http.routers.web.rule=Host(`Aniverse.chickenkiller.com`)"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls.certresolver=le"
+      - "traefik.http.routers.web.middlewares=redirect-to-https@docker"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.services.web.loadbalancer.server.port=3000"
     networks:
       - web-public
